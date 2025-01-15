@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply font-Nunito bg-stone-700 text-stone-700;
+}
+
+section {
+  @apply bg-yellow-300 rounded-xl my-4;
+}
+
+.section-title {
+  @apply text-center font-bold py-2 border-b-2 border-stone-700;
+}
+
+.selector-parent {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-3 p-3;
+}
+
+.selector-parent > div {
+  @apply w-full;
+}
+
+.selector-parent select {
+  @apply bg-yellow-300 w-full py-3 cursor-pointer outline-none border-2 border-stone-700 rounded-lg;
+}
+
+.information tr {
+  @apply border-b-2 border-stone-700;
+}
+
+.information tr:last-child {
+  @apply border-0;
+}
+
+.information td {
+  @apply text-lg font-bold px-4 py-1;
+}
+
+h1 {
+  @apply text-3xl;
+}
+
+h2 {
+  @apply text-2xl;
+}
+
+h3 {
+  @apply text-xl;
+}
+
+h4 {
+  @apply text-lg;
+}
