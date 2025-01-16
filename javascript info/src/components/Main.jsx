@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { data } from "./data";
 import Information from "./Information";
-import EmptySection from "./EmptySection";
+import Empty from "./Empty";
 import { nanoid } from "nanoid";
+import Part1 from "./part1/Part1";
+import Part2 from "./part2/Part2";
+import Part3 from "./part3/Part3";
 
 export default function Main() {
-    const [part, setPart] = useState("0");
-    const [chapter, setChapter] = useState("");
-    const [lesson, setLesson] = useState("");
+    const [part, setPart] = useState("1");
+    const [chapter, setChapter] = useState("1");
+    const [lesson, setLesson] = useState("2");
     // State Values;
 
     const handlePart = (e) => {
@@ -26,7 +29,7 @@ export default function Main() {
 
     const chapterOptions = data[part]?.map((x) => (
         <option key={nanoid()} value={x.chapter}>
-            {x.chapter}. {x.name}
+            {part}.{x.chapter} {x.name}
         </option>
     ));
     const lessonArr =
@@ -35,16 +38,15 @@ export default function Main() {
     const lessonOptions =
         chapter &&
         lessonArr?.map((x) => (
-            <option
-                key={nanoid()}
-                value={x.lesson}
-            >{`${chapter}.${x.lesson}. ${x.name}`}</option>
+            <option key={nanoid()} value={x.lesson}>
+                {part}.{chapter}.{x.lesson} {x.name}
+            </option>
         ));
 
     return (
         <main className="container">
             <section>
-                <h2 className="section-title">Selector</h2>
+                <h2 className="title">Selector</h2>
                 <div className="selector-parent">
                     <div>
                         <select value={part} onChange={handlePart}>
@@ -73,18 +75,24 @@ export default function Main() {
                     </div>
                 </div>
             </section>
-            {/* Selector Section */}
+            {/* Selector Section End */}
             {part === "" ? (
-                <EmptySection msg="Please Select a Part!!" />
+                <Empty msg="Please Select a Part!!" />
             ) : part === "0" ? (
                 <Information />
             ) : chapter === "" ? (
-                <EmptySection msg="Please Select a Chapter!!" />
+                <Empty msg="Please Select a Chapter!!" />
             ) : lesson === "" ? (
-                <EmptySection msg="Please Select a Lesson!!" />
-            ) : (
-                <EmptySection msg="Coming Soon . . ." bg="yellow-300" />
-            )}
+                <Empty msg="Please Select a Lesson!!" />
+            ) : null}
+            {/* Main Component Render */}
+            {part === "1" ? (
+                <Part1 chapter={chapter} lesson={lesson} />
+            ) : part === "2" ? (
+                <Part2 chapter={chapter} lesson={lesson} />
+            ) : part === "3" ? (
+                <Part3 chapter={chapter} lesson={lesson} />
+            ) : null}
         </main>
     );
 }
