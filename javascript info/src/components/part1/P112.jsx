@@ -5,13 +5,9 @@ export default function P112() {
             <div className="p-3">
                 <h3>Points:</h3>
                 <ul>
-                    <li>Coming Soon . . .</li>
-                </ul>
-            </div>
-            <div className="p-3">
-                <h3>Summery:</h3>
-                <ul>
-                    <li>Coming Soon . . .</li>
+                    <li>Specification</li>
+                    <li>Manuals</li>
+                    <li>Compatibility tables</li>
                 </ul>
             </div>
         </section>
