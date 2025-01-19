@@ -1,46 +1,29 @@
+import data from "./details";
+
 export default function Information() {
     return (
-        <section className="information">
+        <section className="info">
             <h2 className="title">Information</h2>
             <table className="table-fixed w-full">
                 <tbody>
-                    <tr>
-                        <td>Started:</td>
-                        <td>15 January 2025</td>
-                    </tr>
-                    <tr>
-                        <td>Last Updated:</td>
-                        <td>17 January 2025</td>
-                    </tr>
-                    <tr>
-                        <td>Ongoing:</td>
-                        <td>2 Day</td>
-                    </tr>
-                    <tr>
-                        <td>Allocated Time:</td>
-                        <td>7 Hours</td>
-                    </tr>
-                    <tr>
-                        <td>Progress:</td>
-                        <td>2 / 175 Lessons</td>
-                    </tr>
-                    <tr>
-                        <td>Status:</td>
-                        <td>Running . . .</td>
-                    </tr>
-                    <tr>
-                        <td>Source:</td>
-                        <td>
-                            <a
-                                href="https://javascript.info/"
-                                title="Javascript Docs"
-                                target="_blank"
-                                className="underline tracking-wider"
-                            >
-                                Javascript.info
-                            </a>
-                        </td>
-                    </tr>
+                    {data.map((x) => (
+                        <tr key={x.title}>
+                            <td>{x.title}:</td>
+                            <td>
+                                {x.link ? (
+                                    <a
+                                        href={x.link}
+                                        title={x.linkTitle}
+                                        target="_blank"
+                                    >
+                                        {x.value}
+                                    </a>
+                                ) : (
+                                    x.value
+                                )}
+                            </td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </section>
