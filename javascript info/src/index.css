@@ -48,6 +48,10 @@ ul {
   @apply list-inside list-disc text-lg;
 }
 
+ol {
+  @apply list-inside list-decimal text-lg;
+}
+
 ul li {
   @apply py-1;
 }
@@ -66,4 +70,8 @@ h3 {
 
 h4 {
   @apply text-lg;
+}
+
+section p {
+  @apply tracking-wide text-justify;
 }

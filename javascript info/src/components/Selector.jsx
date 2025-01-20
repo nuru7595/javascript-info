@@ -1,16 +1,15 @@
-import { data } from "./data";
 import { nanoid } from "nanoid";
 import Select from "./Select";
 
 export default function Selector(props) {
-    const chapterOptions = data[props.part]?.map((x) => (
+    const chapterOptions = props.data[props.part]?.map((x) => (
         <option key={nanoid()} value={x.chapter}>
             {props.part}.{x.chapter} {x.name}
         </option>
     ));
     const lessonArr =
         props.chapter &&
-        data[props.part]?.find((x) => x.chapter === parseInt(props.chapter)).lessons;
+        props.data[props.part]?.find((x) => x.chapter === parseInt(props.chapter)).lessons;
     const lessonOptions =
         props.chapter &&
         lessonArr?.map((x) => (

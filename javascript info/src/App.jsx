@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { data } from "./components/data";
 import Selector from "./components/Selector";
 import Empty from "./components/Empty";
 import Information from "./components/Information";
@@ -10,9 +11,10 @@ export default function App(props) {
     const [chapter, setChapter] = useState(props.b);
     const [lesson, setLesson] = useState(props.c);
     const [Component, setComponent] = useState(null);
+    const [fileTitle, setFileTitle] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-    // State Values;
 
+    // Handling Selector Updates
     const handlePart = (e) => {
         setPart(e.currentTarget.value);
         setChapter("");
@@ -25,15 +27,21 @@ export default function App(props) {
     const handleLesson = (e) => {
         setLesson(e.currentTarget.value);
     };
-    // Handle Selector;
 
-    const fileName = `P${part}${chapter}${lesson}`;
+    // Dynamic Component Loading
     useEffect(() => {
         const loadComponent = async () => {
             setIsLoading(true);
+            const cData = data[parseInt(part)]?.find((x) => x.chapter === parseInt(chapter));
+            if (cData) {
+                const lData = cData.lessons.find((x) => x.lesson === parseInt(lesson));
+                if (lData) {
+                    setFileTitle(lData.name);
+                }
+            }
             try {
                 const module = await import(
-                    `./components/lessons/${fileName}.jsx`
+                    `./components/lessons/P${part}${chapter}${lesson}.jsx`
                 );
                 setComponent(() => module.default);
             } catch {
@@ -42,18 +50,19 @@ export default function App(props) {
                 setIsLoading(false);
             }
         };
+
         setComponent(null);
         if (part && chapter && lesson) {
             loadComponent();
         }
     }, [part, chapter, lesson]);
-    // Dynamic Component Loading;
 
     return (
         <>
             <Header />
             <main className="container">
                 <Selector
+                    data={data}
                     part={part}
                     chapter={chapter}
                     lesson={lesson}
@@ -61,6 +70,7 @@ export default function App(props) {
                     handleChapter={handleChapter}
                     handleLesson={handleLesson}
                 />
+                {/* Conditional Rendering */}
                 {part === "" ? (
                     <Empty msg="Please Select a Part!!" bg="bg-red-400" />
                 ) : part === "0" ? (
@@ -72,7 +82,7 @@ export default function App(props) {
                 ) : isLoading ? (
                     <Empty msg="Loading . . ." />
                 ) : Component ? (
-                    <Component />
+                    <Component title={fileTitle} />
                 ) : (
                     <Empty msg="Coming Soon . . ." />
                 )}

@@ -1,0 +1,1 @@
+import{j as i}from"./index-BOxrgFY-.js";import{C as s}from"./Common-Hro9JpFq.js";function m({title:o}){const t={title:o,points:["Specification","Manuals","Compatibility tables"]};return i.jsx(s,{obj:t})}export{m as default};

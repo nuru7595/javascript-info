@@ -1,6 +1,6 @@
-const end = "19 January 2025";
-const time = 9;
-const doneLesson = 4;
+const end = "20 January 2025";
+const time = 13;
+const doneLesson = 5;
 // Values to Update;
 const start = "15 January 2025";
 const startDate = new Date(start);
