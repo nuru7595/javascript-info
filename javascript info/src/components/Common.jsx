@@ -3,15 +3,43 @@ import Code from "./Code";
 export default function Common({ obj }) {
     return (
         <section>
-            <h2 className="title">{obj.title}</h2>
+            <h2 className="title">
+                <a
+                    href={obj.link}
+                    target="_blank"
+                    title="Go To Javascript Info"
+                >
+                    {obj.title}
+                </a>
+            </h2>
             {obj.points ? (
                 <div className="p-3">
                     <h3>Points:</h3>
-                    <ul>
-                        {obj.points.map((x, i) => (
-                            <li key={i}>{x}</li>
-                        ))}
-                    </ul>
+                    {obj.points.map((x, i) => (
+                        <div key={i}>
+                            <ul>
+                                <li className="font-bold">
+                                    <a
+                                        href={x.link}
+                                        target="_blank"
+                                        title="Go To Javascript Info"
+                                    >
+                                        {x.point}
+                                    </a>
+                                </li>
+                            </ul>
+                            {x.details?.map((y, j) => (
+                                <div key={j}>
+                                    {y.detail.map((z, k) => (
+                                        <p className="text-lg my-2" key={k}>
+                                            {z}
+                                        </p>
+                                    ))}
+                                    {y.code ? <Code code={y.code} /> : null}
+                                </div>
+                            ))}
+                        </div>
+                    ))}
                 </div>
             ) : null}
             {obj.summary ? (
@@ -36,10 +64,12 @@ export default function Common({ obj }) {
                                 <span className="font-bold">Task: </span>
                                 {x.task}
                             </p>
-                            <div>
-                                <strong>Solution:</strong>
-                                <Code code={x.code} />
-                            </div>
+                            {x.code ? (
+                                <div>
+                                    <strong>Solution:</strong>
+                                    <Code code={x.code} />
+                                </div>
+                            ) : null}
                         </div>
                     ))}
                 </div>

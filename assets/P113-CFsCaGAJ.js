@@ -1,1 +1,0 @@
-import{j as r}from"./index-BOxrgFY-.js";import{C as s}from"./Common-Hro9JpFq.js";function n({title:t}){const o={title:t,points:["IDE","Lightweight editors","Let’s not argue"]};return r.jsx(s,{obj:o})}export{n as default};
