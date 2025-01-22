@@ -27,12 +27,13 @@ export default function P121({ title }) {
             {
                 name: `Show an alert`,
                 task: `Create a page that shows a message "I'am JavaScript!".`,
-                code:  [`alert("I'm JavaScript!");`],
+                code: [`alert("I'm JavaScript!");`],
             },
             {
                 name: `Show an alert with an external script`,
                 task: `Take the solution of the previous task Show an alert. Modify it by extracting the script content into an external file alert.js, residing in the same folder.`,
                 code: [`// Nothing Special, Skipped the Task!`],
+                noRun: true,
             },
         ],
     };

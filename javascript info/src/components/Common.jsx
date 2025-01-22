@@ -12,6 +12,18 @@ export default function Common({ obj }) {
                     {obj.title}
                 </a>
             </h2>
+            {obj.details?.map((x, i) => (
+                <div className="p-3" key={i}>
+                    {x.detail.map((y, j) => (
+                        <p className="text-lg my-2" key={j}>
+                            {y}
+                        </p>
+                    ))}
+                    {x.code ? (
+                        <Code code={x.code} noRun={x.noRun} />
+                    ) : null}
+                </div>
+            ))}
             {obj.points ? (
                 <div className="p-3">
                     <h3>Points:</h3>
@@ -35,7 +47,7 @@ export default function Common({ obj }) {
                                             {z}
                                         </p>
                                     ))}
-                                    {y.code ? <Code code={y.code} /> : null}
+                                    {y.code ? <Code code={y.code} noRun={y.noRun} /> : null}
                                 </div>
                             ))}
                         </div>
@@ -67,7 +79,7 @@ export default function Common({ obj }) {
                             {x.code ? (
                                 <div>
                                     <strong>Solution:</strong>
-                                    <Code code={x.code} />
+                                    <Code code={x.code} noRun={x.noRun} />
                                 </div>
                             ) : null}
                         </div>
