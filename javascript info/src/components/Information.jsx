@@ -1,4 +1,5 @@
-import data from "./details";
+import "./infoStyles.css";
+import data from "./info";
 
 export default function Information() {
     return (

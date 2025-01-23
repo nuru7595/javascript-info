@@ -1,0 +1,15 @@
+.info tr {
+    @apply border-b-2 border-stone-700;
+}
+
+.info tr:last-child {
+    @apply border-0;
+}
+
+.info td {
+    @apply text-lg font-bold px-4 py-1;
+}
+
+.info a {
+    @apply underline tracking-wider;
+}

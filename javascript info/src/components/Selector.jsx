@@ -1,3 +1,4 @@
+import "./selectorStyles.css";
 import { nanoid } from "nanoid";
 import Select from "./Select";
 
@@ -9,7 +10,9 @@ export default function Selector(props) {
     ));
     const lessonArr =
         props.chapter &&
-        props.data[props.part]?.find((x) => x.chapter === parseInt(props.chapter)).lessons;
+        props.data[props.part]?.find(
+            (x) => x.chapter === parseInt(props.chapter)
+        ).lessons;
     const lessonOptions =
         props.chapter &&
         lessonArr?.map((x) => (
@@ -22,7 +25,11 @@ export default function Selector(props) {
         <section>
             <h2 className="title">Selector</h2>
             <div className="selector-parent">
-                <Select name="Part" value={props.part} onChange={props.handlePart} />
+                <Select
+                    name="Part"
+                    value={props.part}
+                    onChange={props.handlePart}
+                />
                 <Select
                     name="Chapter"
                     value={props.chapter}

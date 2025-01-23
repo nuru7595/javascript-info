@@ -1,91 +1,23 @@
-import Code from "./Code";
+import "./commonStyles.css";
+import Details from "./Details";
 
-export default function Common({ obj }) {
+export default function Common({ data }) {
     return (
-        <section>
-            <h2 className="title">
-                <a
-                    href={obj.link}
-                    target="_blank"
-                    title="Go To Javascript Info"
-                >
-                    {obj.title}
-                </a>
-            </h2>
-            {obj.details?.map((x, i) => (
-                <div className="p-3" key={i}>
-                    {x.detail.map((y, j) => (
-                        <p className="text-lg my-2" key={j}>
-                            {y}
-                        </p>
-                    ))}
-                    {x.code ? (
-                        <Code code={x.code} noRun={x.noRun} />
-                    ) : null}
+        <section className="common-section">
+            {data?.map((x, i) => (
+                <div key={i}>
+                    <h2 className="title">
+                        <a
+                            href={x.link}
+                            target="_blank"
+                            title="Go To Javascript Info"
+                        >
+                            {x.title}
+                        </a>
+                    </h2>
+                    {x.details ? <Details details={x.details} /> : null}
                 </div>
             ))}
-            {obj.points ? (
-                <div className="p-3">
-                    <h3>Points:</h3>
-                    {obj.points.map((x, i) => (
-                        <div key={i}>
-                            <ul>
-                                <li className="font-bold">
-                                    <a
-                                        href={x.link}
-                                        target="_blank"
-                                        title="Go To Javascript Info"
-                                    >
-                                        {x.point}
-                                    </a>
-                                </li>
-                            </ul>
-                            {x.details?.map((y, j) => (
-                                <div key={j}>
-                                    {y.detail.map((z, k) => (
-                                        <p className="text-lg my-2" key={k}>
-                                            {z}
-                                        </p>
-                                    ))}
-                                    {y.code ? <Code code={y.code} noRun={y.noRun} /> : null}
-                                </div>
-                            ))}
-                        </div>
-                    ))}
-                </div>
-            ) : null}
-            {obj.summary ? (
-                <div className="p-3">
-                    <h3>Summary:</h3>
-                    <ul>
-                        {obj.summary.map((x, i) => (
-                            <li key={i}>{x}</li>
-                        ))}
-                    </ul>
-                </div>
-            ) : null}
-            {obj.tasks ? (
-                <div className="p-3">
-                    <h3>Tasks:</h3>
-                    {obj.tasks.map((x, i) => (
-                        <div key={i}>
-                            <h4 className="font-bold">{`${i + 1}. ${
-                                x.name
-                            }`}</h4>
-                            <p>
-                                <span className="font-bold">Task: </span>
-                                {x.task}
-                            </p>
-                            {x.code ? (
-                                <div>
-                                    <strong>Solution:</strong>
-                                    <Code code={x.code} noRun={x.noRun} />
-                                </div>
-                            ) : null}
-                        </div>
-                    ))}
-                </div>
-            ) : null}
         </section>
     );
 }

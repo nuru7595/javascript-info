@@ -1,0 +1,11 @@
+.common-section {
+    @apply overflow-hidden;
+}
+
+h4 {
+    @apply text-lg;
+}
+
+section p {
+    @apply tracking-wide text-justify px-3;
+}
