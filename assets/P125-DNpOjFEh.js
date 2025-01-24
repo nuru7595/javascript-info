@@ -1,1 +1,0 @@
-import{j as e}from"./index-BV9MrpJG.js";import{C as s}from"./Common-BY1vBrvW.js";function r({title:t}){const o=[{title:t,link:"https://javascript.info/types",details:[{detail:[""],code:["Up Next . . .","Up Next . . ."],noRun:!0}]}];return e.jsx(s,{data:o})}export{r as default};
