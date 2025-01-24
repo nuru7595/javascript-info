@@ -32,9 +32,13 @@ export default function App(props) {
     useEffect(() => {
         const loadComponent = async () => {
             setIsLoading(true);
-            const cData = data[parseInt(part)]?.find((x) => x.chapter === parseInt(chapter));
+            const cData = data[parseInt(part)]?.find(
+                (x) => x.chapter === parseInt(chapter)
+            );
             if (cData) {
-                const lData = cData.lessons.find((x) => x.lesson === parseInt(lesson));
+                const lData = cData.lessons.find(
+                    (x) => x.lesson === parseInt(lesson)
+                );
                 if (lData) {
                     setFileTitle(lData.name);
                 }
@@ -82,7 +86,9 @@ export default function App(props) {
                 ) : isLoading ? (
                     <Empty msg="Loading . . ." />
                 ) : Component ? (
-                    <Component title={fileTitle} />
+                    <section className="common-section">
+                        <Component title={fileTitle} />
+                    </section>
                 ) : (
                     <Empty msg="Coming Soon . . ." />
                 )}

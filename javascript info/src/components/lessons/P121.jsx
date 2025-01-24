@@ -36,20 +36,43 @@ export default function P121({ title }) {
             link: `https://javascript.info/hello-world#tasks`,
             details: [
                 {
-                    title: ``,
-                    detail: [
-                        `Show an alert`,
-                        `Create a page that shows a message "I'am JavaScript!".`,
+                    title: `Show an alert`,
+                    link: ``,
+                    details: [
+                        {
+                            detail: [
+                                `Create a page that shows a message "I'am JavaScript!".`,
+                            ],
+                        },
                     ],
-                    code: [`alert("I'm JavaScript!");`],
                 },
                 {
-                    detail: [
-                        `Show an alert with an external script`,
-                        `Take the solution of the previous task Show an alert. Modify it by extracting the script content into an external file alert.js, residing in the same folder.`,
+                    title: `Solution`,
+                    details: [
+                        {
+                            code: [`alert("I'm JavaScript!");`],
+                        },
                     ],
-                    code: [`// Nothing Special, Skipped the Task!`],
-                    noRun: true,
+                },
+                {
+                    title: `Show an alert with an external script`,
+                    link: ``,
+                    details: [
+                        {
+                            detail: [
+                                `Take the solution of the previous task Show an alert. Modify it by extracting the script content into an external file alert.js, residing in the same folder.`,
+                            ],
+                        },
+                    ],
+                },
+                {
+                    title: `Solution`,
+                    details: [
+                        {
+                            code: [`// Nothing Special, Skipped the Task!`],
+                            noRun: true,
+                        },
+                    ],
                 },
             ],
         },

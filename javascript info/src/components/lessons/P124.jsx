@@ -258,13 +258,17 @@ export default function P124({ title }) {
             link: "https://javascript.info/variables#constants",
             details: [
                 {
-                    detail: [`Coming Soon . . .`],
-                    code: [`Coming Soon . . .`],
-                    noRun: true,
-                },
-                {
-                    detail: [`Coming Soon . . .`],
-                    code: [`Coming Soon . . .`],
+                    detail: [
+                        `To declare a constant (unchanging) variable, use "const" instead of "let":`,
+                        `When a programmer is sure that a variable will never change, they can declare it with const to guarantee and communicate that fact to everyone.`,
+                        `Variables declared using "const" are called “constants”. They cannot be reassigned. An attempt to do so would cause an error:`,
+                    ],
+                    code: [
+                        `const myBirthday = '18.04.1982';`,
+                        ``,
+                        `myBirthday = '01.01.2001';`,
+                        `// error, can't reassign the constant!`,
+                    ],
                     noRun: true,
                 },
             ],
@@ -274,14 +278,21 @@ export default function P124({ title }) {
             link: "https://javascript.info/variables#uppercase-constants",
             details: [
                 {
-                    detail: [`Coming Soon . . .`],
-                    code: [`Coming Soon . . .`],
-                    noRun: true,
-                },
-                {
-                    detail: [`Coming Soon . . .`],
-                    code: [`Coming Soon . . .`],
-                    noRun: true,
+                    detail: [
+                        `There is a widespread practice to use constants as aliases for difficult-to-remember values that are known before execution. Capital-named constants are only used as aliases for “hard-coded” values.`,
+                        `Such constants are named using capital letters and underscores:`,
+                    ],
+                    code: [
+                        `const COLOR_RED = "#F00";`,
+                        `const COLOR_GREEN = "#0F0";`,
+                        `const COLOR_BLUE = "#00F";`,
+                        `const COLOR_ORANGE = "#FF7F00";`,
+                        ``,
+                        `// ...when we need to pick a color`,
+                        `let color = COLOR_ORANGE;`,
+                        `alert(color);`,
+                        `// #FF7F00`,
+                    ],
                 },
             ],
         },
@@ -290,14 +301,27 @@ export default function P124({ title }) {
             link: "https://javascript.info/variables#name-things-right",
             details: [
                 {
-                    detail: [`Coming Soon . . .`],
-                    code: [`Coming Soon . . .`],
-                    noRun: true,
-                },
-                {
-                    detail: [`Coming Soon . . .`],
-                    code: [`Coming Soon . . .`],
-                    noRun: true,
+                    detail: [
+                        `A variable name should have a clean, obvious meaning, describing the data that it stores.`,
+                        `Variable naming is one of the most important and complex skills in programming. A glance at variable names can reveal which code was written by a beginner versus an experienced developer.`,
+                        `Please spend time thinking about the right name for a variable before declaring it. Doing so will repay you handsomely.`,
+                    ],
+                    important: [
+                        {
+                            title: `Reuse or create?`,
+                            details: [
+                                {
+                                    detail: [
+                                        `And the last note. There are some lazy programmers who, instead of declaring new variables, tend to reuse existing ones.`,
+                                        `As a result, their variables are like boxes into which people throw different things without changing their stickers. What’s inside the box now? Who knows? We need to come closer and check.`,
+                                        `Such programmers save a little bit on variable declaration but lose ten times more on debugging.`,
+                                        `An extra variable is good, not evil.`,
+                                        `Modern JavaScript minifiers and browsers optimize code well enough, so it won’t create performance issues. Using different variables for different values can even help the engine optimize your code.`,
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
                 },
             ],
         },
@@ -306,7 +330,13 @@ export default function P124({ title }) {
             link: `https://javascript.info/variables#summary`,
             details: [
                 {
-                    detail: [`Coming Soon . . .`],
+                    detail: [
+                        `We can declare variables to store data by using the "var", "let", or "const" keywords.`,
+                        `"let" – is a modern variable declaration.`,
+                        `"var" – is an old-school variable declaration. Normally we don’t use it at all.`,
+                        `"const" – is like let, but the value of the variable can’t be changed.`,
+                        `Variables should be named in a way that allows us to easily understand what’s inside them.`,
+                    ],
                 },
             ],
         },
@@ -315,7 +345,101 @@ export default function P124({ title }) {
             link: `https://javascript.info/variables#tasks`,
             details: [
                 {
-                    detail: [`Coming Soon . . .`],
+                    title: `Working with variables`,
+                    link: `https://javascript.info/variables#working-with-variables`,
+                    details: [
+                        {
+                            detail: [
+                                `1. Declare two variables: admin and name.`,
+                                `2. Assign the value "John" to name.`,
+                                `3. Copy the value from name to admin.`,
+                                `4. Show the value of admin using alert (must output “John”).`,
+                            ],
+                        },
+                    ],
+                },
+                {
+                    title: `Solution`,
+                    details: [
+                        {
+                            code: [
+                                `let admin, name;`,
+                                `name = "John";`,
+                                `admin = name;`,
+                                `alert(admin);`,
+                            ],
+                        },
+                    ],
+                },
+                {
+                    title: `Giving the right name`,
+                    link: `https://javascript.info/variables#giving-the-right-name`,
+                    details: [
+                        {
+                            detail: [
+                                `1. Create a variable with the name of our planet. How would you name such a variable?`,
+                                `2. Create a variable to store the name of a current visitor to a website. How would you name that variable?`,
+                            ],
+                        },
+                    ],
+                },
+                {
+                    title: `Solution`,
+                    details: [
+                        {
+                            code: [
+                                `const ourPlanet = "Earth";`,
+                                `let currentUser = "Nuru"`,
+                            ],
+                            noRun: true,
+                        },
+                    ],
+                },
+                {
+                    title: `Uppercase const?`,
+                    link: `https://javascript.info/variables#uppercase-const`,
+                    details: [
+                        {
+                            detail: [`Examine the following code:`],
+                            code: [
+                                `const birthday = '18.04.1982';`,
+                                ``,
+                                `const age = someCode(birthday);`,
+                            ],
+                            noRun: true,
+                        },
+                        {
+                            detail: [
+                                `Here we have a constant birthday for the date, and also the age constant.`,
+                                `The age is calculated from birthday using someCode(), which means a function call that we didn’t explain yet (we will soon!), but the details don’t matter here, the point is that age is calculated somehow based on the birthday.`,
+                                `Would it be right to use upper case for birthday? For age? Or even for both?`,
+                            ],
+                            code: [
+                                `const BIRTHDAY = '18.04.1982';`,
+                                `// make birthday uppercase?`,
+                                ``,
+                                `const AGE = someCode(BIRTHDAY);`,
+                                `// make age uppercase?`,
+                            ],
+                            noRun: true,
+                        },
+                    ],
+                },
+                {
+                    title: `Solution`,
+                    details: [
+                        {
+                            detail: [
+                                `It would right to upper case for birthday cause it's a hard-coded constant value.`,
+                                `It would would not right to upper case for age cause it's not hard-coded constant value. So, it will be in lower case.`,
+                            ],
+                            code: [
+                                `const BIRTHDAY = "18.04.1982";`,
+                                `const age = someCode(BIRTHDAY);`,
+                            ],
+                            noRun: true,
+                        },
+                    ],
                 },
             ],
         },
