@@ -5,6 +5,6 @@ import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App a={1} b={2} c={6} />
+    <App a={1} b={2} c={8} />
   </StrictMode>,
 )
