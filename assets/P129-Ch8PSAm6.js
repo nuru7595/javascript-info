@@ -1,1 +1,0 @@
-import{j as a}from"./index-C8fFaWcp.js";import{C as n}from"./Common-CSi-JxuQ.js";function e({title:t}){const o=[{title:t,link:"https://javascript.info/comparison",details:[{detail:[],code:["Up Next . . .","Up Next . . ."],noRun:!0}]}];return a.jsx(n,{data:o})}export{e as default};
