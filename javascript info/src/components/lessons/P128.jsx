@@ -486,9 +486,17 @@ export default function P128({ title }) {
             link: `https://javascript.info/operators#bitwise-operators`,
             details: [
                 {
-                    detail: [``, ``, ``],
-                    code: [``, ``, ``, ``],
-                    noRun: true,
+                    detail: [
+                        `The list of operators:`,
+                        `💠 AND ( & )`,
+                        `💠 OR ( | )`,
+                        `💠 XOR ( ^ )`,
+                        `💠 NOT ( ~ )`,
+                        `💠 LEFT SHIFT ( << )`,
+                        `💠 RIGHT SHIFT ( >> )`,
+                        `💠 ZERO-FILL RIGHT SHIFT ( >>> )`,
+                        `These operators are used very rarely, when we need to fiddle with numbers on the very lowest (bitwise) level.`,
+                    ],
                 },
             ],
         },
@@ -497,9 +505,48 @@ export default function P128({ title }) {
             link: `https://javascript.info/operators#comma`,
             details: [
                 {
-                    detail: [``, ``, ``],
-                    code: [``, ``, ``, ``],
+                    detail: [
+                        `The comma operator , is one of the rarest and most unusual operators. Sometimes, it’s used to write shorter code, so we need to know it in order to understand what’s going on.`,
+                        `The comma operator allows us to evaluate several expressions, dividing them with a comma ,. Each of them is evaluated but only the result of the last one is returned.`,
+                        `For example:`,
+                    ],
+                    code: [
+                        `let a = (1 + 2, 3 + 4);`,
+                        ``,
+                        `alert( a );`,
+                        `// 7 (the result of 3 + 4)`,
+                    ],
+                    important: [
+                        {
+                            title: `Comma has a very low precedence`,
+                            details: [
+                                {
+                                    detail: [
+                                        `Please note that the comma operator has very low precedence, lower than =, so parentheses are important in the example above.`,
+                                        `Without them: a = 1 + 2, 3 + 4 evaluates + first, summing the numbers into a = 3, 7, then the assignment operator = assigns a = 3, and the rest is ignored. It’s like (a = 1 + 2), 3 + 4.`,
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    detail: [
+                        `Why do we need an operator that throws away everything except the last expression?`,
+                        `Sometimes, people use it in more complex constructs to put several actions in one line:`,
+                    ],
+                    code: [
+                        `// three operations in one line`,
+                        `for (a = 1, b = 3, c = a * b; a < 10; a++) {`,
+                        ` ...`,
+                        `}`,
+                    ],
                     noRun: true,
+                },
+                {
+                    detail: [
+                        `Such tricks are used in many JavaScript frameworks. That’s why we’re mentioning them. But usually they don’t improve code readability so we should think well before using them.`,
+                    ],
                 },
             ],
         },
@@ -512,9 +559,17 @@ export default function P128({ title }) {
             link: `https://javascript.info/operators#the-postfix-and-prefix-forms`,
             details: [
                 {
-                    detail: [``, ``, ``],
-                    code: [``, ``, ``, ``],
-                    noRun: true,
+                    detail: [
+                        `What are the final values of all variables a, b, c and d after the code below?`,
+                    ],
+                    code: [
+                        `let a = 1, b = 1;`,
+                        ``,
+                        `let c = ++a;`,
+                        `let d = b++;`,
+                        `// Answer: a = 2, b = 2, c = 2, d = 1;`,
+                        "alert(`a = ${a}, b = ${b}, c = ${c}, d = ${d}`);",
+                    ],
                 },
             ],
         },
@@ -523,9 +578,16 @@ export default function P128({ title }) {
             link: `https://javascript.info/operators#assignment-result`,
             details: [
                 {
-                    detail: [``, ``, ``],
-                    code: [``, ``, ``, ``],
-                    noRun: true,
+                    detail: [
+                        `What are the values of a and x after the code below?`,
+                    ],
+                    code: [
+                        `let a = 2;`,
+                        ``,
+                        `let x = 1 + (a *= 2);`,
+                        `// Answer: a = 4, x = 5;`,
+                        "alert(`a = ${a}, x = ${x}`);",
+                    ],
                 },
             ],
         },
@@ -534,8 +596,53 @@ export default function P128({ title }) {
             link: `https://javascript.info/operators#type-conversions`,
             details: [
                 {
-                    detail: [``, ``, ``],
-                    code: [``, ``, ``, ``],
+                    detail: [`What are results of these expressions?`],
+                    code: [
+                        `"" + 1 + 0`,
+                        `"" - 1 + 0`,
+                        `true + false`,
+                        `6 / "3"`,
+                        `"2" * "3"`,
+                        `4 + 5 + "px"`,
+                        `"$" + 4 + 5`,
+                        `"4" - 2`,
+                        `"4px" - 2`,
+                        `"  -9  " + 5`,
+                        `"  -9  " - 5`,
+                        `null + 1`,
+                        `undefined + 1`,
+                        `" \t \n" - 2`,
+                    ],
+                    noRun: true,
+                },
+                {
+                    detail: [
+                        `Explanation & Answers:`,
+                        `1. The addition with a string "" + 1 converts 1 to a string: "" + 1 = "1", and then we have "1" + 0, the same rule is applied.`,
+                        `2. The subtraction - (like most math operations) only works with numbers, it converts an empty string "" to 0.`,
+                        `3. The addition with a string appends the number 5 to the string.`,
+                        `4. The subtraction always converts to numbers, so it makes " -9 " a number -9 (ignoring spaces around it).`,
+                        `5. null becomes 0 after the numeric conversion.`,
+                        `6. undefined becomes NaN after the numeric conversion.`,
+                        `7. Space characters are trimmed off string start and end when a string is converted to a number. Here the whole string consists of space characters, such as \t, \n and a “regular” space between them. So, similarly to an empty string, it becomes 0.`,
+                    ],
+                    code: [
+                        `// Answers:`,
+                        `"" + 1 + 0 = "10" // (1)`,
+                        `"" - 1 + 0 = -1 // (2)`,
+                        `true + false = 1`,
+                        `6 / "3" = 2`,
+                        `"2" * "3" = 6`,
+                        `4 + 5 + "px" = "9px"`,
+                        `"$" + 4 + 5 = "$45"`,
+                        `"4" - 2 = 2`,
+                        `"4px" - 2 = NaN`,
+                        `"  -9  " + 5 = "  -9  5" // (3)`,
+                        `"  -9  " - 5 = -14 // (4)`,
+                        `null + 1 = 1 // (5)`,
+                        `undefined + 1 = NaN // (6)`,
+                        `" \t \n" - 2 = -2 // (7)`,
+                    ],
                     noRun: true,
                 },
             ],
@@ -545,9 +652,22 @@ export default function P128({ title }) {
             link: `https://javascript.info/operators#fix-the-addition`,
             details: [
                 {
-                    detail: [``, ``, ``],
-                    code: [``, ``, ``, ``],
-                    noRun: true,
+                    detail: [
+                        `Here’s a code that asks the user for two numbers and shows their sum.`,
+                        `It works incorrectly. The output in the example below is 12 (for default prompt values).`,
+                        `Why? Fix it. The result should be 3.`,
+                    ],
+                    code: [
+                        `let a = prompt("First number?", 1);`,
+                        `let b = prompt("Second number?", 2);`,
+                        ``,
+                        `alert(a + b); // 12`,
+                        `// Corrected Below:`,
+                        `let c = +prompt("First number?", 1);`,
+                        `let d = Number(prompt("Second number?", 2));`,
+                        ``,
+                        `alert(c + d); // 3`,
+                    ],
                 },
             ],
         },
