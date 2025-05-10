@@ -58,8 +58,7 @@ export default function P126({ title }) {
                     code: [
                         `let age = prompt('How old are you?', 100);`,
                         ``,
-                        "alert(`You are ${age} years old!`);",
-                        `// You are 100 years old!`,
+                        "alert(`You are ${age} years old!`); // You are 100 years old!",
                     ],
                     important: [
                         {
@@ -71,8 +70,7 @@ export default function P126({ title }) {
                                         `So, for prompts to look good in IE, we recommend always providing the second argument:`,
                                     ],
                                     code: [
-                                        `let test = prompt('Test', '');`,
-                                        `// For Internet Explorer`,
+                                        `let test = prompt('Test', ''); // For Internet Explorer`,
                                     ],
                                 },
                             ],
@@ -94,8 +92,7 @@ export default function P126({ title }) {
                     code: [
                         `let isBoss = confirm("Are you the boss?");`,
                         ``,
-                        `alert( isBoss );`,
-                        `// true if OK is pressed`,
+                        `alert( isBoss ); // true if OK is pressed`,
                     ],
                 },
             ],

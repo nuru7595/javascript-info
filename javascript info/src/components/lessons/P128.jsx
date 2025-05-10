@@ -22,10 +22,8 @@ export default function P128({ title }) {
                     detail: [
                         `An operand – is what operators are applied to. Sometimes, people call these “arguments” instead of “operands”.`,
                     ],
-                    code: [
-                        `alert( 5 + 2 );`,
-                        `// There are 2 operands 5 and 2`,
-                    ],
+                    code: [`alert( 5 + 2 ); // There are 2 operands 5 and 2`],
+                    noRun: true,
                 },
                 {
                     detail: [
@@ -34,8 +32,7 @@ export default function P128({ title }) {
                     code: [
                         `let x = 1;`,
                         `x = -x;`,
-                        `alert( x );`,
-                        `// -1, unary negation was applied`,
+                        `alert( x ); // -1, unary negation was applied`,
                     ],
                 },
                 {
@@ -44,8 +41,7 @@ export default function P128({ title }) {
                     ],
                     code: [
                         `let x = 1, y = 3;`,
-                        `alert( y - x );`,
-                        `// 2, binary minus subtracts values`,
+                        `alert( y - x ); // 2, binary minus subtracts values`,
                     ],
                 },
                 {
@@ -80,7 +76,7 @@ export default function P128({ title }) {
                     detail: [
                         `The result of a % b is the remainder of the integer division of a by b:`,
                     ],
-                    code: [`alert( 5 % 2 );`, `// 1, `],
+                    code: [`alert( 5 % 2 ); // 1, `],
                 },
             ],
         },
@@ -92,7 +88,7 @@ export default function P128({ title }) {
                     detail: [
                         `The exponentiation operator a ** b raises a to the power of b:`,
                     ],
-                    code: [`alert( 2 ** 3 );`, `// 2³ = 8`],
+                    code: [`alert( 2 ** 3 ); // 2³ = 8`],
                 },
                 {
                     detail: [
@@ -100,10 +96,8 @@ export default function P128({ title }) {
                         `For example, a square root is an exponentiation by ½:`,
                     ],
                     code: [
-                        `alert( 4 ** (1/2) );`,
-                        `// 2 (power of 1/2 is the same as a square root)`,
-                        `alert( 8 ** (1/3) );`,
-                        `// 2 (power of 1/3 is the same as a cubic root)`,
+                        `alert( 4 ** (1/2) ); // 2 (power of 1/2 is the same as a square root)`,
+                        `alert( 8 ** (1/3) ); // 2 (power of 1/3 is the same as a cubic root)`,
                     ],
                 },
             ],
@@ -119,8 +113,7 @@ export default function P128({ title }) {
                     ],
                     code: [
                         `let s = "my" + "String";`,
-                        `alert(s);`,
-                        `// myString`,
+                        `alert(s); // myString`,
                     ],
                 },
                 {
@@ -128,10 +121,8 @@ export default function P128({ title }) {
                         `Note that if any of the operands is a string, then the other one is converted to a string too.`,
                     ],
                     code: [
-                        `alert( '1' + 2 );`,
-                        `// "12"`,
-                        `alert( 2 + '1' );`,
-                        `// "21"`,
+                        `alert( '1' + 2 ); // "12"`,
+                        `alert( 2 + '1' ); // "21"`,
                     ],
                 },
                 {
@@ -139,13 +130,13 @@ export default function P128({ title }) {
                         `See, it doesn’t matter whether the first operand is a string or the second one.`,
                         `Here’s a more complex example:`,
                     ],
-                    code: [`alert(2 + 2 + '1' );`, `// "41" and not "221"`],
+                    code: [`alert(2 + 2 + '1' ); // "41" and not "221"`],
                 },
                 {
                     detail: [
                         `Here, operators work one after another. The first + sums two numbers, so it returns 4, then the next + adds the string 1 to it, so it’s like 4 + '1' = '41'.`,
                     ],
-                    code: [`alert('1' + 2 + 2);`, `// "122" and not "14"`],
+                    code: [`alert('1' + 2 + 2); // "122" and not "14"`],
                 },
                 {
                     detail: [
@@ -154,10 +145,8 @@ export default function P128({ title }) {
                         `Here’s the demo for subtraction and division:`,
                     ],
                     code: [
-                        `alert( 6 - '2' );`,
-                        `// 4, converts '2' to a number`,
-                        `alert( '6' / '2' );`,
-                        `// 3, converts both operands to numbers`,
+                        `alert( 6 - '2' ); // 4, converts '2' to a number`,
+                        `alert( '6' / '2' ); // 3, converts both operands to numbers`,
                     ],
                 },
             ],
@@ -175,18 +164,14 @@ export default function P128({ title }) {
                     code: [
                         `// No effect on numbers`,
                         `let x = 1;`,
-                        `alert( +x );`,
-                        `// 1`,
+                        `alert( +x ); // 1`,
                         ``,
                         `let y = -2;`,
-                        `alert( +y );`,
-                        `// -2`,
+                        `alert( +y ); // -2`,
                         ``,
                         `// Converts non-numbers`,
-                        `alert( +true );`,
-                        `// 1`,
-                        `alert( +"" );`,
-                        `// 0`,
+                        `alert( +true ); // 1`,
+                        `alert( +"" ); // 0`,
                     ],
                 },
                 {
@@ -199,8 +184,7 @@ export default function P128({ title }) {
                         `let apples = "2";`,
                         `let oranges = "3";`,
                         ``,
-                        `alert( apples + oranges );`,
-                        `// "23", the binary plus concatenates strings`,
+                        `alert( apples + oranges ); // "23", the binary plus concatenates strings`,
                     ],
                 },
                 {
@@ -212,11 +196,10 @@ export default function P128({ title }) {
                         `let oranges = "3";`,
                         ``,
                         `// both values converted to numbers before the binary plus`,
-                        `alert( +apples + +oranges );`,
-                        `// 5`,
+                        `alert( +apples + +oranges ); // 5`,
                         ``,
                         `// the longer variant`,
-                        `// alert( Number(apples) + Number(oranges) ); // 5`,
+                        `alert( Number(apples) + Number(oranges) ); // 5`,
                     ],
                 },
                 {
@@ -268,10 +251,8 @@ export default function P128({ title }) {
                         ``,
                         `let c = 3 - (a = b + 1);`,
                         ``,
-                        `alert( a );`,
-                        `// 3`,
-                        `alert( c );`,
-                        `// 0`,
+                        `alert( a ); // 3`,
+                        `alert( c ); // 0`,
                     ],
                 },
                 {
@@ -294,12 +275,9 @@ export default function P128({ title }) {
                         ``,
                         `a = b = c = 2 + 2;`,
                         ``,
-                        `alert( a );`,
-                        `// 4`,
-                        `alert( b );`,
-                        `// 4`,
-                        `alert( c );`,
-                        `// 4`,
+                        `alert( a ); // 4`,
+                        `alert( b ); // 4`,
+                        `alert( c ); // 4`,
                     ],
                 },
                 {
@@ -329,13 +307,10 @@ export default function P128({ title }) {
                     ],
                     code: [
                         `let n = 2;`,
-                        `n += 5;`,
-                        `// now n = 7 (same as n = n + 5)`,
-                        `n *= 2;`,
-                        `// now n = 14 (same as n = n * 2)`,
+                        `n += 5; // now n = 7 (same as n = n + 5)`,
+                        `n *= 2; // now n = 14 (same as n = n * 2)`,
                         ``,
-                        `alert( n );`,
-                        `// 14`,
+                        `alert( n ); // 14`,
                     ],
                 },
                 {
@@ -357,20 +332,16 @@ export default function P128({ title }) {
                     ],
                     code: [
                         `let counter = 2;`,
-                        `counter++;`,
-                        `// works the same as counter = counter + 1, but is shorter`,
-                        `alert( counter );`,
-                        `// 3`,
+                        `counter++; // works the same as counter = counter + 1, but is shorter`,
+                        `alert( counter ); // 3`,
                     ],
                 },
                 {
                     detail: [`💠 Decrement -- decreases a variable by 1:`],
                     code: [
                         `let counter = 2;`,
-                        `counter--;`,
-                        `// works the same as counter = counter - 1, but is shorter`,
-                        `alert( counter );`,
-                        `// 1`,
+                        `counter--; // works the same as counter = counter - 1, but is shorter`,
+                        `alert( counter ); // 1`,
                     ],
                     important: [
                         {
@@ -398,8 +369,7 @@ export default function P128({ title }) {
                         `let counter = 1;`,
                         `let a = ++counter;`,
                         ``,
-                        `alert(a);`,
-                        `// 2`,
+                        `alert(a); // 2`,
                     ],
                 },
                 {
@@ -411,8 +381,7 @@ export default function P128({ title }) {
                         `let counter = 1;`,
                         `let a = counter++;`,
                         ``,
-                        `alert(a);`,
-                        `// 1`,
+                        `alert(a); // 1`,
                     ],
                 },
                 {
@@ -425,21 +394,20 @@ export default function P128({ title }) {
                         `let counter = 0;`,
                         `counter++;`,
                         `++counter;`,
-                        `alert( counter );`,
-                        `// 2, the lines above did the same`,
+                        `alert( counter ); // 2, the lines above did the same`,
                     ],
                 },
                 {
                     detail: [
                         `💠 If we’d like to increase a value and immediately use the result of the operator, we need the prefix form:`,
                     ],
-                    code: [`let counter = 0;`, `alert( ++counter );`, `// 1`],
+                    code: [`let counter = 0;`, `alert( ++counter ); // 1`],
                 },
                 {
                     detail: [
                         `💠 If we’d like to increment a value but use its previous value, we need the postfix form:`,
                     ],
-                    code: [`let counter = 0;`, `alert( counter++ );`, `// 0`],
+                    code: [`let counter = 0;`, `alert( counter++ ); // 0`],
                     important: [
                         {
                             title: `Increment/decrement among other operators`,
@@ -451,16 +419,14 @@ export default function P128({ title }) {
                                     ],
                                     code: [
                                         `let counter = 1;`,
-                                        `alert( 2 * ++counter );`,
-                                        `// 4`,
+                                        `alert( 2 * ++counter ); // 4`,
                                     ],
                                 },
                                 {
                                     detail: [`Compare with:`],
                                     code: [
                                         `let counter = 1;`,
-                                        `alert( 2 * counter++ );`,
-                                        `// 2, because counter++ returns the "old" value`,
+                                        `alert( 2 * counter++ ); // 2, because counter++ returns the "old" value`,
                                     ],
                                 },
                                 {
@@ -513,8 +479,7 @@ export default function P128({ title }) {
                     code: [
                         `let a = (1 + 2, 3 + 4);`,
                         ``,
-                        `alert( a );`,
-                        `// 7 (the result of 3 + 4)`,
+                        `alert( a ); // 7 (the result of 3 + 4)`,
                     ],
                     important: [
                         {
