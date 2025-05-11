@@ -1,1 +1,0 @@
-import{j as o}from"./index-Dat4Qq1i.js";import{C as n}from"./Common-Ce9A9Jt2.js";function r({title:t}){const e=[{title:t,link:"https://javascript.info/ifelse",details:[{detail:["Sometimes, we need to perform different actions based on different conditions."],code:["Up Next . . .","Up Next . . ."],noRun:!0}]}];return o.jsx(n,{data:e})}export{r as default};
