@@ -3,12 +3,12 @@
 @import 'tailwindcss';
 
 @theme {
-    --font-Nunito: 'Nunito', sans-serif;
+  --font-Nunito: 'Nunito', sans-serif;
 }
 
 @utility container {
-    margin-inline: auto;
-    padding-inline: 12px;
+  margin-inline: auto;
+  padding-inline: 12px;
 }
 
 body {
@@ -25,4 +25,48 @@ section {
 
 h1 {
   @apply text-3xl font-bold;
+}
+
+h2 {
+  @apply text-2xl font-bold;
+}
+
+.selector-parent {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-3 p-3;
+}
+
+.selector-parent>div {
+  @apply w-full;
+}
+
+.selector-parent select {
+  @apply bg-yellow-300 w-full py-3 cursor-pointer outline-none border-2 border-stone-700 rounded-lg;
+}
+
+.info tr {
+  @apply border-b-2 border-stone-700;
+}
+
+.info tr:last-child {
+  @apply border-0;
+}
+
+.info td {
+  @apply text-lg font-bold px-4 py-1;
+}
+
+.info a {
+  @apply underline tracking-wider;
+}
+
+.common-section {
+  @apply overflow-hidden;
+}
+
+h4 {
+  @apply text-lg;
+}
+
+section p {
+  @apply tracking-wide text-justify px-3;
 }

@@ -6,10 +6,10 @@ import Selector from "./components/Selector";
 import Empty from "./components/Empty";
 import Information from "./components/Information";
 
-export default function App(props) {
-    const [part, setPart] = useState(props.a);
-    const [chapter, setChapter] = useState(props.b);
-    const [lesson, setLesson] = useState(props.c);
+export default function App() {
+    const [part, setPart] = useState(1);
+    const [chapter, setChapter] = useState(2);
+    const [lesson, setLesson] = useState(14);
     const [Component, setComponent] = useState(null);
     const [fileTitle, setFileTitle] = useState("");
     const [isLoading, setIsLoading] = useState(false);
@@ -45,7 +45,7 @@ export default function App(props) {
             }
             try {
                 const module = await import(
-                    `./components/lessons/P${part}${chapter}${lesson}.jsx`
+                    `./components/C${part}${chapter}/L${part}${chapter}${lesson}.jsx`
                 );
                 setComponent(() => module.default);
             } catch {

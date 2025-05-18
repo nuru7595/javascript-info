@@ -1,0 +1,383 @@
+import Common from "../Common";
+
+export default function C1211({ title }) {
+    const data = [
+        {
+            title: title,
+            link: "https://javascript.info/logical-operators",
+            details: [
+                {
+                    detail: [
+                        `There are four logical operators in JavaScript: || (OR), && (AND), ! (NOT), ?? (Nullish Coalescing). Here we cover the first three, the ?? operator is in the next article.`,
+                        `Although they are called “logical”, they can be applied to values of any type, not only boolean. Their result can also be of any type.`,
+                    ],
+                },
+            ],
+        },
+        {
+            title: `|| (OR)`,
+            link: `https://javascript.info/logical-operators#or`,
+            details: [
+                {
+                    detail: [
+                        `In classical programming, the logical OR is meant to manipulate boolean values only. If any of its arguments are true, it returns true, otherwise it returns false.`,
+                        `If an operand is not a boolean, it’s converted to a boolean for the evaluation.`,
+                        `Most of the time, OR || is used in an if statement to test if any of the given conditions is true. We can pass more than 2 conditions:`,
+                    ],
+                    code: [
+                        `let hour = 12;`,
+                        `let isWeekend = true;`,
+                        ``,
+                        `if (hour < 10 || hour > 18 || isWeekend) {`,
+                        `  alert( 'The office is closed.' ); // it is the weekend`,
+                        `}`,
+                    ],
+                },
+            ],
+        },
+        {
+            title: `OR "||" finds the first truthy value`,
+            link: `https://javascript.info/logical-operators#or-finds-the-first-truthy-value`,
+            details: [
+                {
+                    detail: [
+                        `JavaScript’s || (OR) operator returns the first truthy value it finds — not just true, but the actual value. If all values are falsy, it returns the last one.`,
+                        `It works like this:`,
+                        `💠 Goes left to right.`,
+                        `💠 Checks each value.`,
+                        `💠 Returns the first one that is truthy.`,
+                        `💠 If none are truthy, returns the last value.`,
+                    ],
+                    code: [
+                        `alert( 1 || 0 ); // 1 (1 is truthy)`,
+                        ``,
+                        `alert( null || 1 ); // 1 (1 is the first truthy value)`,
+                        `alert( null || 0 || 1 ); // 1 (the first truthy value)`,
+                        ``,
+                        `alert( undefined || null || 0 ); // 0 (all falsy, returns the last value)`,
+                    ],
+                },
+                {
+                    detail: [
+                        `We can use || to pick the first value that has real content. If all values are empty or falsy, we show a default.`,
+                        `This shows "SuperCoder" because it's the first truthy value. If all were empty, "Anonymous" would be shown instead.`,
+                    ],
+                    code: [
+                        `let firstName = "";`,
+                        `let lastName = "";`,
+                        `let nickName = "SuperCoder";`,
+                        ``,
+                        `alert( firstName || lastName || nickName || "Anonymous"); // SuperCoder`,
+                    ],
+                },
+                {
+                    detail: [
+                        `The || operator uses short-circuit evaluation. It stops as soon as it finds a truthy value — the rest is skipped.`,
+                        `This matters when the next part runs code (like a function call).`,
+                    ],
+                    code: [
+                        `true || alert("not printed");`,
+                        `false || alert("printed");`,
+                    ],
+                },
+                {
+                    detail: [
+                        `The first line does nothing because true stops the check. The second line runs alert() because false makes it keep going.`,
+                        `This trick is often used to run code only if the left side is falsy.`,
+                    ],
+                },
+            ],
+        },
+        {
+            title: `&& (AND)`,
+            link: `https://javascript.info/logical-operators#and`,
+            details: [
+                {
+                    detail: [
+                        `In classical programming, AND returns true if both operands are truthy and false otherwise.`,
+                        `Just as with OR, any value is allowed as an operand of AND.`,
+                        ``,
+                    ],
+                    code: [
+                        `let hour = 12;`,
+                        `let minute = 30;`,
+                        ``,
+                        `if (hour == 12 && minute == 30) {`,
+                        `  alert( 'The time is 12:30' );`,
+                        `}`,
+                    ],
+                },
+            ],
+        },
+        {
+            title: `AND “&&” finds the first falsy value`,
+            link: `https://javascript.info/logical-operators#and-finds-the-first-falsy-value`,
+            details: [
+                {
+                    detail: [
+                        `Unlike || which returns the first truthy value, && returns the first falsy one.`,
+                        `💠 The && (AND) operator checks values from left to right.`,
+                        `💠 It returns the first falsy value it finds.`,
+                        `💠 If all are truthy, it returns the last value.`,
+                    ],
+                    code: [
+                        `alert(1 && 0); // 0`,
+                        `alert(1 && 5); // 5`,
+                        `alert(null && 5); // null`,
+                        `alert(0 && "anything"); // 0`,
+                        ``,
+                        `alert(1 && 2 && null && 3); // null — first falsy`,
+                        `alert(1 && 2 && 3); // 3 — all truthy, returns last`,
+                    ],
+                    important: [
+                        {
+                            title: `Precedence of AND && is higher than OR ||`,
+                            details: [
+                                {
+                                    detail: [
+                                        `The code a && b || c && d is essentially the same as if the && expressions were in parentheses: (a && b) || (c && d).`,
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            title: "Don't replace if with || or &&",
+                            details: [
+                                {
+                                    detail: [
+                                        `You can use && as a shortcut for if.`,
+                                    ],
+                                    code: [
+                                        `let x = 1;`,
+                                        `(x > 0) && alert('Greater than zero!');`,
+                                        `// Same as . . .`,
+                                        `if (x > 0) alert('Greater than zero!');`,
+                                    ],
+                                },
+                                {
+                                    detail: [
+                                        `Using && is shorter, but if is clearer. So it's better to use if when checking conditions and && when you're really working with logical values.`,
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            title: `! (NOT)`,
+            link: `https://javascript.info/logical-operators#not`,
+            details: [
+                {
+                    detail: [
+                        `The boolean NOT operator is represented with an exclamation sign !. The operator accepts a single argument and does the following:`,
+                        `💠 Converts the operand to boolean type: true/false.`,
+                        `💠 Returns the inverse value.`,
+                    ],
+                    code: [`alert( !true ); // false`, `alert( !0 ); // true`],
+                },
+                {
+                    detail: [
+                        `Using double NOT !! turns any value into a boolean.`,
+                        `💠 The first ! makes it true → false or false → true.`,
+                        `💠 The second ! flips it back to the original truthiness, but now as a true or false value.`,
+                        `It’s the same as using Boolean(value) — just shorter.`,
+                    ],
+                    code: [
+                        `alert( !!"non-empty string" ); // true`,
+                        `alert( !!null ); // false`,
+                        ``,
+                        `alert( Boolean("non-empty string") ); // true`,
+                        `alert( Boolean(null) ); // false`,
+                    ],
+                },
+                {
+                    detail: [
+                        `Note: ! has the highest priority among logical operators, so it runs first — before && or ||.`,
+                    ],
+                },
+            ],
+        },
+        {
+            title: `Tasks`,
+            link: `https://javascript.info/logical-operators#tasks`,
+        },
+        {
+            title: `What's the result of OR?`,
+            link: `https://javascript.info/logical-operators#what-s-the-result-of-or`,
+            details: [
+                {
+                    detail: [`What is the code below going to output?`],
+                    code: [`alert( null || 2 || undefined ); // 2`],
+                },
+            ],
+        },
+        {
+            title: `What's the result of OR'ed alerts?`,
+            link: `https://javascript.info/logical-operators#what-s-the-result-of-or-ed-alerts`,
+            details: [
+                {
+                    detail: [`What will the code below output?`],
+                    code: [`alert( alert(1) || 2 || alert(3) ); // 1 & 2`],
+                },
+                {
+                    detail: [
+                        `Explanation:`,
+                        `💠 The call to alert does not return a value. Or, in other words, it returns undefined.`,
+                        `💠 So the first alert returns undefined and OR goes to the second operand searching for a truthy value.`,
+                        `💠 Finally 2 is truthy value and the execution is halted.`,
+                    ],
+                },
+            ],
+        },
+        {
+            title: `What is the result of AND?`,
+            link: `https://javascript.info/logical-operators#what-is-the-result-of-and`,
+            details: [
+                {
+                    detail: [`What is this code going to show?`],
+                    code: [`alert( 1 && null && 2 ); // null`],
+                },
+            ],
+        },
+        {
+            title: `What is the result of AND'ed alerts?`,
+            link: `https://javascript.info/logical-operators#what-is-the-result-of-and-ed-alerts`,
+            details: [
+                {
+                    detail: [`What will this code show?`],
+                    code: [`alert( alert(1) && alert(2) ); // 1 & undefined`],
+                },
+                {
+                    detail: [
+                        `Explanation:`,
+                        `💠 alert(1) runs → shows 1 → returns undefined.`,
+                        `💠 undefined && alert(2) → undefined is falsy, so && stops there.`,
+                        `💠 So alert(undefined) runs next.`,
+                        `Note: Only alert(1) is run on the left. alert(2) is skipped because && stops at the falsy undefined.`,
+                    ],
+                },
+            ],
+        },
+        {
+            title: `The result of OR AND OR`,
+            link: `https://javascript.info/logical-operators#the-result-of-or-and-or`,
+            details: [
+                {
+                    detail: [`What will the result be?`],
+                    code: [`alert( null || 2 && 3 || 4 ); // 3`],
+                },
+                {
+                    detail: [
+                        `Explanation:`,
+                        `💠 The precedence of AND && is higher than ||, so it executes first.`,
+                        `💠 The result of 2 && 3 = 3, so the expression becomes: null || 3 || 4`,
+                        `💠 Now the result is the first truthy value: 3.`,
+                    ],
+                },
+            ],
+        },
+        {
+            title: `Check the range between`,
+            link: `https://javascript.info/logical-operators#check-the-range-between`,
+            details: [
+                {
+                    detail: [
+                        `Write an if condition to check that age is between 14 and 90 inclusively. (“Inclusively” means that age can reach the edges 14 or 90.)`,
+                    ],
+                    code: [
+                        `let age = 21;`,
+                        `if (age >= 14 && age <= 90) {`,
+                        `   alert("Allowed!");`,
+                        `} else {`,
+                        '   alert("Not Allowed!");',
+                        "}",
+                    ],
+                },
+            ],
+        },
+        {
+            title: `Check the range outside`,
+            link: `https://javascript.info/logical-operators#check-the-range-outside`,
+            details: [
+                {
+                    detail: [
+                        `Write an if condition to check that age is NOT between 14 and 90 inclusively.`,
+                        `Create two variants: the first one using NOT !, the second one – without it.`,
+                    ],
+                    code: [
+                        `// First Variant:`,
+                        `let age = 13;`,
+                        `if (!(age >= 14 && age <= 90)) {`,
+                        `   alert("Allowed!");`,
+                        `} else {`,
+                        '   alert("Not Allowed!");',
+                        "}",
+                        ``,
+                        "// Second Variant:",
+                        `let age2 = 100;`,
+                        `if (age2 < 14 || age2 > 90) {`,
+                        `   alert("Allowed!");`,
+                        `} else {`,
+                        '   alert("Not Allowed!");',
+                        "}",
+                    ],
+                },
+            ],
+        },
+        {
+            title: `A question about "if"`,
+            link: `https://javascript.info/logical-operators#a-question-about-if`,
+            details: [
+                {
+                    detail: [
+                        `Which of these alerts are going to execute?`,
+                        `What will the results of the expressions be inside if(...)?`,
+                    ],
+                    code: [
+                        `if (-1 || 0) alert( 'first' ); // -1, first`,
+                        `if (-1 && 0) alert( 'second' ); // 0, not executed`,
+                        `if (null || -1 && 1) alert( 'third' ); // 1, third`,
+                    ],
+                },
+            ],
+        },
+        {
+            title: `Check the login`,
+            link: `https://javascript.info/logical-operators#check-the-login`,
+            details: [
+                {
+                    detail: [
+                        `Write the code which asks for a login with prompt.`,
+                        `If the visitor enters "Admin", then prompt for a password, if the input is an empty line or Esc – show “Canceled”, if it’s another string – then show “I don’t know you”.`,
+                        `If the password equals "TheMaster", then show "Welcome!". For other password - show "Wrong password". For an empty string or cancelled input, show "Canceled".`,
+                        `Please use nested if blocks. Mind the overall readability of the code.`,
+                        `Hint: passing an empty input to a prompt returns an empty string ''. Pressing ESC during a prompt returns null.`,
+                    ],
+                    code: [
+                        `let userName = prompt('Enter your username . . .', '');`,
+                        `let password;`,
+                        ``,
+                        `if (userName == "Admin") {`,
+                        `   password = prompt('Enter your password . . .', '');`,
+                        `   if (password == "TheMaster") {`,
+                        `       alert("Welcome!");`,
+                        `   } else if (password == '' || password == null) {`,
+                        `       alert("Cancelled");`,
+                        `   } else {`,
+                        `       alert("Wrong password");`,
+                        `   };`,
+                        `} else if (userName == '' || userName == null) {`,
+                        `   alert("Cancelled");`,
+                        `} else {`,
+                        `   alert("I don't know you");`,
+                        `}`,
+                    ],
+                },
+            ],
+        },
+    ];
+
+    return <Common data={data} />;
+}

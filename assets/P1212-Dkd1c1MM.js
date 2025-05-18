@@ -1,1 +1,0 @@
-import{j as a}from"./index-Bp8ycsAz.js";import{C as e}from"./Common-B7v_Kw5m.js";function s({title:t}){const o=[{title:t,link:"https://javascript.info/nullish-coalescing-operator",details:[{detail:[""],code:["Up Next . . .","Up Next . . ."],noRun:!0}]}];return a.jsx(e,{data:o})}export{s as default};

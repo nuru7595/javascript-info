@@ -1,4 +1,3 @@
-import "./commonStyles.css";
 import Details from "./Details";
 
 export default function Common({ data }) {

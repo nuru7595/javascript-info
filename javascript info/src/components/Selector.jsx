@@ -1,4 +1,3 @@
-import "./selectorStyles.css";
 import { nanoid } from "nanoid";
 import Select from "./Select";
 
