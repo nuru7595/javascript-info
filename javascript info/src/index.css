@@ -6,21 +6,21 @@
   --font-Nunito: 'Nunito', sans-serif;
 }
 
-@utility container {
-  margin-inline: auto;
-  padding-inline: 12px;
+body {
+  @apply font-Nunito bg-zinc-800 text-zinc-800;
 }
 
-body {
-  @apply font-Nunito bg-stone-700 text-stone-700;
+header,
+footer {
+  @apply bg-yellow-300 text-center font-bold p-3;
 }
 
 section {
-  @apply bg-yellow-300 rounded-xl my-4;
+  @apply bg-yellow-300 rounded-xl m-3;
 }
 
 .title {
-  @apply text-center font-bold py-2 border-b-2 border-stone-700;
+  @apply text-center font-bold py-2 border-b-2 border-zinc-800;
 }
 
 h1 {
@@ -40,11 +40,11 @@ h2 {
 }
 
 .selector-parent select {
-  @apply bg-yellow-300 w-full py-3 cursor-pointer outline-none border-2 border-stone-700 rounded-lg;
+  @apply bg-yellow-300 w-full py-3 cursor-pointer outline-none border-2 border-zinc-800 rounded-lg;
 }
 
 .info tr {
-  @apply border-b-2 border-stone-700;
+  @apply border-b-2 border-zinc-800;
 }
 
 .info tr:last-child {

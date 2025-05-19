@@ -5,7 +5,7 @@ export default function important({ imp }) {
     return imp.map((x, i) => (
         <div
             key={i}
-            className="border-slate-400 border-4 rounded-xl bg-slate-300 py-3 mx-3 my-6"
+            className="border-slate-400 border-2 rounded-xl bg-slate-300 py-3 m-3"
         >
             <h2 className="flex justify-normal items-center gap-3 px-3">
                 <FaInfoCircle

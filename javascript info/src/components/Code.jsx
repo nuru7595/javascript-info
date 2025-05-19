@@ -7,7 +7,9 @@ export default function Code({ code, noRun }) {
                 {code.map((line, i) => {
                     const commentIndex = line.indexOf("//");
                     const beforeComment =
-                        commentIndex !== -1 ? line.slice(0, commentIndex) : line;
+                        commentIndex !== -1
+                            ? line.slice(0, commentIndex)
+                            : line;
                     const comment =
                         commentIndex !== -1 ? line.slice(commentIndex) : null;
 

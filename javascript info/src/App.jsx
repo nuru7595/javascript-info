@@ -64,7 +64,7 @@ export default function App() {
     return (
         <>
             <Header />
-            <main className="container">
+            <main>
                 <Selector
                     data={data}
                     part={part}
