@@ -65,15 +65,6 @@ export default function C121({ title }) {
                         },
                     ],
                 },
-                {
-                    title: `Solution`,
-                    details: [
-                        {
-                            code: [`// Nothing Special, Skipped the Task!`],
-                            noRun: true,
-                        },
-                    ],
-                },
             ],
         },
     ];

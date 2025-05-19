@@ -1,0 +1,1 @@
+import{j as e}from"./index-B-kelymJ.js";import{C as i}from"./Common-DfebMXky.js";function r({title:t}){const a=[{title:t,link:"https://javascript.info/switch",details:[{detail:["A switch statement can replace multiple if checks. It gives a more descriptive way to compare a value with multiple variants."]}]}];return e.jsx(i,{data:a})}export{r as default};
